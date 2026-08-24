@@ -157,7 +157,11 @@ class _FeaturedVehicleCard extends StatelessWidget {
               children: [
                 Text(
                   vehicle.name,
-                  style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13,
+                    color: AppColors.textPrimary,
+                  ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -205,7 +209,11 @@ class _ViewAllVehiclesPill extends StatelessWidget {
           children: [
             Text(
               'View all vehicles',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 13,
+                color: AppColors.textPrimary,
+              ),
             ),
             SizedBox(width: 4),
             Icon(Icons.chevron_right, size: 16),

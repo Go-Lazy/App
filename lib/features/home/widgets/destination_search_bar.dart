@@ -22,13 +22,10 @@ class DestinationSearchBar extends StatelessWidget {
             color: AppColors.textSecondary,
           ),
           const SizedBox(width: 10),
-          Expanded(
+          const Expanded(
             child: Text(
               'Where do you want to go?',
-              style: TextStyle(
-                color: AppColors.textSecondary.withValues(alpha: 0.9),
-                fontSize: 14,
-              ),
+              style: TextStyle(color: AppColors.textSecondary, fontSize: 14),
             ),
           ),
           Container(

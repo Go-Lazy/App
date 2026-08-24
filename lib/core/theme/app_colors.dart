@@ -14,8 +14,18 @@ class AppColors {
   static const Color surface = Color(0xFFFFFFFF);
   static const Color surfaceMuted = Color(0xFFF7F7F8);
 
-  static const Color textPrimary = Color(0xFF1A1A1A);
-  static const Color textSecondary = Color(0xFF6B7280);
+  /// Vehicle names, headings, nav labels, prices, location — anything that
+  /// is the main point of a line of text.
+  static const Color textPrimary = Color(0xFF111111);
+
+  /// Genuinely secondary but still legible information: distances, rating
+  /// counts, "From ₹80/hr", supporting descriptions.
+  static const Color textSecondary = Color(0xFF4B5563);
+
+  /// Lowest-emphasis supporting text, reserved for content that should
+  /// visually recede behind both primary and secondary text.
+  static const Color textMuted = Color(0xFF6B7280);
+
   static const Color textOnPrimary = Color(0xFFFFFFFF);
 
   static const Color border = Color(0xFFE7E7EA);

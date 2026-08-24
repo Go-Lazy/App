@@ -47,7 +47,11 @@ class _HowItWorksStepTile extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           '${step.stepNumber}. ${step.title}',
-          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 12),
+          style: const TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 12,
+            color: AppColors.textPrimary,
+          ),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: 2),

@@ -66,7 +66,7 @@ class _NavTabButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = selected ? AppColors.primary : AppColors.textSecondary;
+    final color = selected ? AppColors.primary : AppColors.textPrimary;
 
     return InkWell(
       onTap: onTap,
