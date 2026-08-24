@@ -41,11 +41,11 @@ class HomeScreen extends ConsumerWidget {
               sliver: SliverToBoxAdapter(child: const HomeHeader()),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
               sliver: SliverToBoxAdapter(child: const DestinationSearchBar()),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: NearbyMapPreview(
                   featuredVehicle: vehicles.isNotEmpty ? vehicles.first : null,
@@ -54,7 +54,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: categoriesAsync.when(
                   data: (categories) => SizedBox(
@@ -81,13 +81,13 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: SectionHeader(title: 'Vehicles Near You', onViewAll: () {}),
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: SizedBox(
                   height: 180,
@@ -102,7 +102,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 24, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: Text(
                   'How GoLazy Works',
@@ -111,12 +111,12 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: stepsAsync.when(
                   data: (steps) => HowItWorksRow(steps: steps),
                   loading: () => const SizedBox(
-                    height: 90,
+                    height: 72,
                     child: Center(child: CircularProgressIndicator()),
                   ),
                   error: (_, _) => const SizedBox.shrink(),
@@ -124,7 +124,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+              padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
               sliver: SliverToBoxAdapter(
                 child: SafetyBanner(onLearnMore: () {}),
               ),

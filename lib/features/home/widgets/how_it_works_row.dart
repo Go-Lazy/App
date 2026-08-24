@@ -17,7 +17,7 @@ class HowItWorksRow extends StatelessWidget {
           Expanded(child: _HowItWorksStepTile(step: step)),
           if (step != steps.last)
             const Padding(
-              padding: EdgeInsets.only(bottom: 40),
+              padding: EdgeInsets.only(bottom: 12),
               child: _DashedConnector(),
             ),
         ],
@@ -52,12 +52,6 @@ class _HowItWorksStepTile extends StatelessWidget {
             fontSize: 12,
             color: AppColors.textPrimary,
           ),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 2),
-        Text(
-          step.description,
-          style: const TextStyle(fontSize: 10, color: AppColors.textSecondary),
           textAlign: TextAlign.center,
         ),
       ],

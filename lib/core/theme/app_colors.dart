@@ -6,9 +6,12 @@ import 'package:flutter/material.dart';
 class AppColors {
   const AppColors._();
 
-  static const Color primary = Color(0xFFF9701D);
-  static const Color primaryDark = Color(0xFFE85F0A);
-  static const Color primarySurface = Color(0xFFFFF1E6);
+  /// The single GoLazy brand orange. Darker and more saturated than a pale
+  /// tangerine so it reads as a premium, high-contrast accent — reference
+  /// this everywhere an "orange" is needed instead of a local hex value.
+  static const Color primary = Color(0xFFE85D04);
+  static const Color primaryDark = Color(0xFFC44C03);
+  static const Color primarySurface = Color(0xFFFDE9DC);
 
   static const Color background = Color(0xFFFFFFFF);
   static const Color surface = Color(0xFFFFFFFF);

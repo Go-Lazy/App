@@ -100,11 +100,14 @@ class _VehicleCardState extends State<VehicleCard> {
                   children: [
                     const Icon(Icons.star, size: 14, color: AppColors.rating),
                     const SizedBox(width: 3),
-                    Text(
-                      '${vehicle.rating} (${vehicle.ratingCount})',
-                      style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                    Expanded(
+                      child: Text(
+                        '${vehicle.rating} (${vehicle.ratingCount})',
+                        style: const TextStyle(fontSize: 11, color: AppColors.textSecondary),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
-                    const Spacer(),
                     Text(
                       '₹${vehicle.pricePerHour}/hr',
                       style: const TextStyle(
