@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_colors.dart';
-import '../../../shared/enums/vehicle_type.dart';
 import '../../../shared/models/vehicle.dart';
 
 /// A vehicle listing card shown in the "Vehicles Near You" section.
@@ -37,12 +36,9 @@ class _VehicleCardState extends State<VehicleCard> {
               Container(
                 height: 100,
                 width: double.infinity,
-                color: vehicle.thumbnailColor,
-                child: Icon(
-                  vehicle.type.icon,
-                  size: 42,
-                  color: AppColors.textPrimary.withValues(alpha: 0.7),
-                ),
+                color: AppColors.surfaceMuted,
+                padding: const EdgeInsets.all(10),
+                child: Image.asset(vehicle.imageAsset, fit: BoxFit.contain),
               ),
               Positioned(
                 left: 8,

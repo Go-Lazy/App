@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../app/router.dart';
 import '../../core/widgets/section_header.dart';
 import '../../shared/models/vehicle.dart';
 import 'providers/home_providers.dart';
@@ -17,6 +19,8 @@ import 'widgets/vehicle_card.dart';
 /// vehicles and the "How GoLazy Works" explainer.
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
+
+  static const int _chatTabIndex = 3;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -130,8 +134,13 @@ class HomeScreen extends ConsumerWidget {
       ),
       bottomNavigationBar: HomeBottomNav(
         selectedIndex: selectedNavTab,
-        onTabSelected: (index) =>
-            ref.read(selectedNavTabProvider.notifier).state = index,
+        onTabSelected: (index) async {
+          ref.read(selectedNavTabProvider.notifier).state = index;
+          if (index == _chatTabIndex) {
+            await context.push(AppRoutes.chat);
+            ref.read(selectedNavTabProvider.notifier).state = 0;
+          }
+        },
       ),
     );
   }

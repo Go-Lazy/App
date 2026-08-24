@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/app_assets.dart';
 import '../../../shared/models/how_it_works_step.dart';
 import '../../../shared/models/vehicle.dart';
 import '../../../shared/models/vehicle_category.dart';
@@ -32,7 +33,7 @@ class MockHomeRepository implements HomeRepository {
           pricePerHour: 80,
           rating: 4.8,
           ratingCount: 120,
-          thumbnailColor: Color(0xFFFFE8D6),
+          imageAsset: AppAssets.hondaActiva,
         ),
         Vehicle(
           id: 'v2',
@@ -42,7 +43,7 @@ class MockHomeRepository implements HomeRepository {
           pricePerHour: 250,
           rating: 4.7,
           ratingCount: 98,
-          thumbnailColor: Color(0xFFFCE1DE),
+          imageAsset: AppAssets.swiftDzire,
         ),
         Vehicle(
           id: 'v3',
@@ -52,7 +53,7 @@ class MockHomeRepository implements HomeRepository {
           pricePerHour: 350,
           rating: 4.8,
           ratingCount: 76,
-          thumbnailColor: Color(0xFFE9EBEF),
+          imageAsset: AppAssets.hyundaiCreta,
         ),
       ];
 

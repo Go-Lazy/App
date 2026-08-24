@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../core/theme/app_colors.dart';
 
-/// GoLazy bottom navigation bar. Only the Home tab is a real destination in
-/// Phase 1; the other tabs are presentational until their screens exist.
+/// GoLazy bottom navigation bar. Home and Chat are real destinations in
+/// Phase 1; Bookings and Wallet are presentational until their screens exist.
 class HomeBottomNav extends StatelessWidget {
   const HomeBottomNav({
     super.key,
@@ -18,7 +18,7 @@ class HomeBottomNav extends StatelessWidget {
     (icon: Icons.home_rounded, label: 'Home'),
     (icon: Icons.calendar_today_outlined, label: 'Bookings'),
     (icon: Icons.account_balance_wallet_outlined, label: 'Wallet'),
-    (icon: Icons.person_outline, label: 'Profile'),
+    (icon: Icons.chat_bubble_outline, label: 'Chat'),
   ];
 
   @override

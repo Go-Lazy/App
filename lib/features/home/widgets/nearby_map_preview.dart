@@ -144,11 +144,12 @@ class _FeaturedVehicleCard extends StatelessWidget {
           Container(
             width: 44,
             height: 44,
+            padding: const EdgeInsets.all(4),
             decoration: BoxDecoration(
-              color: vehicle.thumbnailColor,
+              color: AppColors.surfaceMuted,
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(vehicle.type.icon, color: AppColors.primary),
+            child: Image.asset(vehicle.imageAsset, fit: BoxFit.contain),
           ),
           const SizedBox(width: 8),
           Expanded(

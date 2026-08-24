@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import '../enums/vehicle_type.dart';
 
 /// A vehicle listing shown on the home page. Backed today by
@@ -14,7 +12,7 @@ class Vehicle {
     required this.pricePerHour,
     required this.rating,
     required this.ratingCount,
-    required this.thumbnailColor,
+    required this.imageAsset,
   });
 
   final String id;
@@ -24,7 +22,7 @@ class Vehicle {
   final int pricePerHour;
   final double rating;
   final int ratingCount;
-  final Color thumbnailColor;
+  final String imageAsset;
 
   String get distanceLabel => distanceInMeters < 1000
       ? '$distanceInMeters m away'

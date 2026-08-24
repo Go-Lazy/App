@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 
+import '../features/chat/chat_screen.dart';
 import '../features/home/home_screen.dart';
+import '../features/profile/profile_screen.dart';
 import '../features/splash/splash_screen.dart';
 
 /// Named route paths for the app. Centralizing these avoids magic strings
@@ -10,6 +12,8 @@ abstract class AppRoutes {
 
   static const String splash = '/';
   static const String home = '/home';
+  static const String profile = '/profile';
+  static const String chat = '/chat';
 }
 
 GoRouter buildAppRouter() {
@@ -23,6 +27,14 @@ GoRouter buildAppRouter() {
       GoRoute(
         path: AppRoutes.home,
         builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.profile,
+        builder: (context, state) => const ProfileScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.chat,
+        builder: (context, state) => const ChatScreen(),
       ),
     ],
   );
