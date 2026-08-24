@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../app/router.dart';
 import '../../core/widgets/section_header.dart';
 import '../../shared/models/vehicle.dart';
+import '../update/providers/update_providers.dart';
+import '../update/widgets/update_available_dialog.dart';
 import 'providers/home_providers.dart';
 import 'widgets/category_chip.dart';
 import 'widgets/destination_search_bar.dart';
@@ -37,6 +39,21 @@ class HomeScreen extends ConsumerWidget {
     final selectedNavTab = ref.watch(selectedNavTabProvider);
 
     final vehicles = vehiclesAsync.value ?? const <Vehicle>[];
+
+    ref.listen(appUpdateCheckProvider, (previous, next) {
+      final update = next.value;
+      if (update == null) return;
+      if (ref.read(updatePromptShownProvider)) return;
+
+      ref.read(updatePromptShownProvider.notifier).state = true;
+      showDialog<void>(
+        context: context,
+        builder: (dialogContext) => UpdateAvailableDialog(
+          update: update,
+          onUpdate: () => ref.read(updateRepositoryProvider).downloadAndInstall(update),
+        ),
+      );
+    });
 
     return Scaffold(
       body: SafeArea(

@@ -1,4 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Required to check GitHub Releases for app updates and download the APK. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Required to launch the system installer for a downloaded update APK. -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <application
         android:label="GoLazy"
         android:name="${applicationName}"
