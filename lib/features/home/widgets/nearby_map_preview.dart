@@ -22,7 +22,7 @@ class NearbyMapPreview extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Container(
-        height: 210,
+        height: 190,
         color: AppColors.surfaceMuted,
         child: Stack(
           children: [

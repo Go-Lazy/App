@@ -20,7 +20,13 @@ import 'widgets/vehicle_card.dart';
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
-  static const int _chatTabIndex = 3;
+  /// Bottom nav tab index -> the route it opens. Home (index 0) has no
+  /// entry since it's the tab already showing this screen.
+  static const Map<int, String> _tabRoutes = {
+    1: AppRoutes.bookings,
+    2: AppRoutes.wallet,
+    3: AppRoutes.chat,
+  };
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -37,15 +43,15 @@ class HomeScreen extends ConsumerWidget {
         child: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 6, 16, 0),
               sliver: SliverToBoxAdapter(child: const HomeHeader()),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
               sliver: SliverToBoxAdapter(child: const DestinationSearchBar()),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: NearbyMapPreview(
                   featuredVehicle: vehicles.isNotEmpty ? vehicles.first : null,
@@ -54,7 +60,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: categoriesAsync.when(
                   data: (categories) => SizedBox(
@@ -81,7 +87,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: SectionHeader(title: 'Vehicles Near You', onViewAll: () {}),
               ),
@@ -102,7 +108,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: Text(
                   'How GoLazy Works',
@@ -111,7 +117,7 @@ class HomeScreen extends ConsumerWidget {
               ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(16, 14, 16, 0),
+              padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
               sliver: SliverToBoxAdapter(
                 child: stepsAsync.when(
                   data: (steps) => HowItWorksRow(steps: steps),
@@ -136,8 +142,9 @@ class HomeScreen extends ConsumerWidget {
         selectedIndex: selectedNavTab,
         onTabSelected: (index) async {
           ref.read(selectedNavTabProvider.notifier).state = index;
-          if (index == _chatTabIndex) {
-            await context.push(AppRoutes.chat);
+          final route = _tabRoutes[index];
+          if (route != null) {
+            await context.push(route);
             ref.read(selectedNavTabProvider.notifier).state = 0;
           }
         },

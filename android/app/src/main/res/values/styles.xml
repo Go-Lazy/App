@@ -3,10 +3,14 @@
     <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off.
          Uses the AndroidX SplashScreen compat theme so the mandatory Android 12+
          system splash shows the same white background and GoLazy key mark that
-         opens splashscreen.png, instead of the generic launcher icon treatment,
-         so the OS-controlled phase reads as the start of one continuous GoLazy
-         splash rather than a separate screen. It hands off to NormalTheme (and
-         Flutter's own splashscreen.png) as soon as the first frame is drawn. -->
+         opens splashscreen.png, instead of a plain blank window or the generic
+         launcher icon treatment — Android's SplashScreen API can only ever show
+         an icon-sized graphic here (never the full splash design), and a fully
+         blank icon reads as an empty white screen, so this keeps that
+         mandatory phase visually branded and continuous with splashscreen.png
+         rather than blank. It hands off to NormalTheme (and Flutter's own
+         splashscreen.png) as soon as the first frame is drawn, which is the
+         earliest point Android allows any app content to appear. -->
     <style name="LaunchTheme" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@android:color/white</item>
         <item name="windowSplashScreenIconBackgroundColor">@android:color/white</item>
