@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/widgets/coming_soon_screen.dart';
+import '../features/auth/screens/login_screen.dart';
+import '../features/auth/screens/profile_screen.dart';
+import '../features/auth/screens/register_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/splash/splash_screen.dart';
 
@@ -16,6 +19,8 @@ abstract class AppRoutes {
   static const String chat = '/chat';
   static const String bookings = '/bookings';
   static const String wallet = '/wallet';
+  static const String login = '/auth/login';
+  static const String register = '/auth/register';
 }
 
 GoRouter buildAppRouter() {
@@ -32,11 +37,15 @@ GoRouter buildAppRouter() {
       ),
       GoRoute(
         path: AppRoutes.profile,
-        builder: (context, state) => const ComingSoonScreen(
-          title: 'Profile',
-          icon: Icons.person_outline,
-          message: 'Account details, KYC and settings will appear here.',
-        ),
+        builder: (context, state) => const ProfileScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.login,
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.register,
+        builder: (context, state) => const RegisterScreen(),
       ),
       GoRoute(
         path: AppRoutes.chat,

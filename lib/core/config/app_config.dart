@@ -8,4 +8,14 @@ class AppConfig {
   /// in-app update checker.
   static const String githubRepoOwner = 'Go-Lazy';
   static const String githubRepoName = 'App';
+
+  /// Base URL of the GoLazy backend (Go-Lazy/backend: Node.js + Fastify).
+  ///
+  /// Defaults to the Android emulator's alias for the host machine's
+  /// localhost. Override for a physical device or a deployed environment
+  /// with `--dart-define=API_BASE_URL=http://<host>:4000`.
+  static const String apiBaseUrl = String.fromEnvironment(
+    'API_BASE_URL',
+    defaultValue: 'http://10.0.2.2:4000',
+  );
 }
